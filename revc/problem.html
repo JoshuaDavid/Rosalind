@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>ROSALIND | Complementing a Strand of DNA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <script type="text/javascript">
+      (function() {
+          document.getElementsByTagName("html")[0].className += " loading loading-mathjax";
+      })();
+    </script>
+    
+    
+    
+    <!-- Le styles -->
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+    <link href="/static/css/rosalind.pack.min.css?v=1364746428" rel="stylesheet">
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/themes/base/jquery-ui.css" type="text/css" media="all" />
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="/static/ico/favicon.ico?v=1350559981">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top hide-on-print">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="/"><img src="/static/img/logo.png?v=1350464059" /></a>
+
+          <div class="nav-collapse">
+            <ul class="nav">
+               
+              <li class="dropdown ">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                      About
+                      <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                      <li><a href="/about/">Project</a></li>
+                      <li><a href="/faq/">FAQ</a></li>
+                      <li><a href="/courses/">Courses</a></li>
+                      <li><a href="/faculty/">Faculty</a></li>
+                  </ul>
+              </li>
+              <li class="dropdown ">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                      Problems
+                      <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                      <li><a href="/problems/list-view/">List View</a></li>
+                      <li><a href="/problems/tree-view/">Tree View</a></li>
+                      <li><a href="/problems/topics/">Topics</a></li>
+                      
+                      <li><a href="/problems/suggested/">Add Problem</a></li>
+                  </ul>
+              </li>
+              <li class="dropdown ">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    Statistics
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="/statistics/top/">Top 100</a></li>
+                    <li><a href="/statistics/countries/">Countries</a></li>
+                    <li><a href="/statistics/levels/">Levels</a></li>
+                    <li><a href="/badges/">Badges</a></li>
+                    <li><a href="/achievements/">Achievements</a></li>
+                </ul>    
+              </li>
+              
+              <li class=""><a href="/glossary/">Glossary</a></li>
+            </ul>
+            
+            <form class="navbar-search pull-left" action="/search/" method="GET" enctype="multipart/form-data">
+                
+                
+                <input type="text" class="search-query " name="q" id="id_q" placeholder="search" accesskey="f" tabindex="1">
+            </form>
+
+            <div class="social-buttons">
+                <a href="http://www.facebook.com/pages/Rosalind/430419800314316" id="facebook" target="_blank" title="Facebook Profile"></a>
+                <a href="http://twitter.com/ProjectRosalind" id="twitter" target="_blank" title="Follow us on Twitter"></a>
+            </div>
+
+            <ul class="nav pull-right">
+                
+                    <li class="" id="menu_login"><a href="/accounts/login/">Log in</a></li>
+                    <li class="" id="menu_register"><a href="/accounts/register/">Register</a></li>
+                
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+    
+    <div class="container main">
+        <noscript>
+            <div class="row-fluid">
+                <div class="alert alert-warning flash-message">
+                    It appears that your browser has JavaScript disabled. Rosalind requires your browser to be JavaScript enabled.
+                </div>
+            </div>
+        </noscript>
+        
+        
+        
+<h1>Complementing a Strand of DNA
+    
+        <nobr><small class="hide-on-print">
+            
+                <a href="/problems/revc/recent/">solved by 4220</a>
+            
+        </small></nobr>
+    
+</h1>
+
+<div class="problem-properties">
+<p class="date">
+    
+        July 2, 2012, midnight
+    
+    by
+    
+        <a href="/about/">Rosalind Team</a>
+    
+</p>
+
+    <p class="topics"><strong>Topics</strong>:
+        
+            <a href="/problems/topics/string-algorithms/">String Algorithms</a>
+        
+    </p>
+
+</div>
+<ul class="problems-pager hide-on-print">
+    
+    
+    <li class="previous">
+        <a href="/problems/rna/" 
+            title="“Transcribing DNA into RNA”" 
+            data-content="Solved by 4651 (correct ratio 86.8%).&lt;p class=&quot;topics&quot;&gt;&lt;strong&gt;Topics&lt;/strong&gt;: &lt;span class=&quot;topic&quot;&gt;String Algorithms&lt;/span&gt;&lt;/p&gt;" rel="popover" data-placement="right" data-trigger="hover">&larr;</a>
+    </li>
+    
+    
+    
+    <li class="next">
+        <a href="/problems/fib/" 
+            title="“Rabbits and Recurrence Relations”" 
+            data-content="Solved by 621 (correct ratio 66.1%).&lt;p class=&quot;topics&quot;&gt;&lt;strong&gt;Topics&lt;/strong&gt;: &lt;span class=&quot;topic&quot;&gt;Combinatorics&lt;/span&gt;, &lt;span class=&quot;topic&quot;&gt;Dynamic Programming&lt;/span&gt;&lt;/p&gt;" rel="popover" data-placement="left" data-trigger="hover">&rarr;</a>
+    </li>
+    
+</ul>
+<div class="problem-statement problem-statement-bordered" problem="117">
+    <blockquote>
+<h2 id="the-secondary-and-tertiary-structures-of-dna">The Secondary and Tertiary Structures of DNA</h2>
+<div class="thumb"><a figure="Figure 1" href="/media/problems/revc/DNA_chemical_structure.png" lightbox-title="Base pairing across the two strands of DNA." rel="lightbox[figures]"><img src="/media/problems/revc/DNA_chemical_structure.thumb.png" /></a><div class="caption"><strong>Figure 1</strong><span>. </span><span>Base pairing across the two strands of DNA.</span></div>
+</div>
+<div class="thumb"><a figure="Figure 2" href="/media/problems/revc/DNA.png" lightbox-title="The double helix of DNA on the molecular scale." rel="lightbox[figures]"><img src="/media/problems/revc/DNA.thumb.png" /></a><div class="caption"><strong>Figure 2</strong><span>. </span><span>The double helix of DNA on the molecular scale.</span></div>
+</div>
+<p>In <a data-content="Solved by 5320 (correct ratio 69.6%).&lt;p class=&quot;topics&quot;&gt;&lt;strong&gt;Topics&lt;/strong&gt;: &lt;span class=&quot;topic&quot;&gt;String Algorithms&lt;/span&gt;&lt;/p&gt;" data-trigger="hover" href="/problems/dna/" rel="popover" title="“Counting DNA Nucleotides”">“Counting DNA Nucleotides”</a>, we introduced <a class="term" href="/glossary/nucleic-acid/" id="term-200" rel="tooltip" title="
+A polymer of nucleotides, constituting either RNA or DNA.">nucleic acids</a>, and we saw that the <a class="term" href="/glossary/nucleic-acid-primary-structure/" id="term-533" rel="tooltip" title="
+The order of bases on a strand of nucleic acid.">primary structure</a>
+of a nucleic acid is determined by the ordering of its <a class="term" href="/glossary/nucleobase/" id="term-544" rel="tooltip" title="
+The differentiating component of nucleotides.">nucleobases</a> along the <a class="term" href="/glossary/sugar-phosphate-backbone/" id="term-471" rel="tooltip" title="
+The alternating chain of sugar and phosphate molecules in a nucleic acid.">sugar-phosphate backbone</a>
+that constitutes the bonds of the nucleic acid <a class="term" href="/glossary/polymer/" id="term-256" rel="tooltip" title="
+A molecule formed by a repeating chain of subunits.">polymer</a>.
+Yet primary structure tells us nothing about the larger, 3-dimensional shape of the molecule, which
+is vital for a complete understanding of nucleic acids.</p>
+<p>The search for a complete chemical structure of nucleic acids was central to molecular biology research in the mid-20th
+Century, culminating in 1953 with a publication in <em>Nature</em> of fewer than 800 words by James Watson and his student
+Francis Crick. Consolidating a high resolution X-ray image created by Rosalind
+Franklin and Raymond Gosling with a number of established chemical results,
+Watson and Crick proposed the following structure for <a class="term" href="/glossary/dna/" id="term-545" rel="tooltip" title="
+The molecule encoding heredity and underlying the cellular processes of all life forms.">DNA</a>:</p>
+<ol>
+<li>The DNA molecule is made up of two <a class="term" href="/glossary/strand/" id="term-250" rel="tooltip" title="
+A nucleic acid polymer.">strands</a>, running in opposite directions.</li>
+<li>Each base bonds to a base in the opposite strand.
+<a class="term" href="/glossary/adenine/" id="term-205" rel="tooltip" title="
+One of the nucleobases of both RNA and DNA; complementary to thymine in DNA.">Adenine</a> always bonds with <a class="term" href="/glossary/thymine/" id="term-249" rel="tooltip" title="
+One of the four bases of DNA; complementary to adenine.">thymine</a>, and <a class="term" href="/glossary/cytosine/" id="term-309" rel="tooltip" title="
+One of the nucleobases of both RNA and DNA; complementary to guanine.">cytosine</a> always bonds with <a class="term" href="/glossary/guanine/" id="term-310" rel="tooltip" title="
+One of the nucleobases of both RNA and DNA; complementary to cytosine in DNA.">guanine</a>;
+the <a class="term new" href="/glossary/complementary-base/" id="term-667" rel="tooltip" title="New term: 
+The base to which a given base bonds in DNA.">complement</a> of a base is the base to which it always bonds;
+see <a href="/media/problems/revc/DNA_chemical_structure.png" lightbox-title="Base pairing across the two strands of DNA." rel="lightbox[figures]" title="Click to view">Figure 1</a>.</li>
+<li>The two strands are twisted together into a long spiral staircase structure called
+a <a class="term new" href="/glossary/double-helix/" id="term-323" rel="tooltip" title="New term: 
+A shape composed of two twisted chains, which serves as a model for the structure of DNA.">double helix</a>; see <a href="/media/problems/revc/DNA.png" lightbox-title="The double helix of DNA on the molecular scale." rel="lightbox[figures]" title="Click to view">Figure 2</a>.</li>
+</ol>
+<p>Because they dictate how bases from different strands interact with each other,
+(1) and (2) above compose the <a class="term new" href="/glossary/nucleic-acid-secondary-structure/" id="term-534" rel="tooltip" title="New term: 
+The base pairing interactions of nucleic acid bases.">secondary structure</a> of DNA.
+(3) describes the 3-dimensional shape of the DNA molecule,
+or its <a class="term new" href="/glossary/nucleic-acid-tertiary-structure/" id="term-535" rel="tooltip" title="New term: 
+The 3-dimensional shape of a nucleic acid, which in the case of DNA is the double helix.">tertiary structure</a>.</p>
+<p>In light of Watson and Crick's model, the bonding of two complementary bases is called a <a class="term new" href="/glossary/base-pair/" id="term-208" rel="tooltip" title="New term: 
+The combination of two bonded complementary bases.">base pair</a> (bp).
+Therefore, the length of a DNA molecule will commonly be given in bp instead of <a class="term" href="/glossary/nucleotide/" id="term-201" rel="tooltip" title="
+The monomer making up a nucleic acid.">nt</a>.
+By complementarity, once we know the
+order of bases on one strand, we can immediately deduce the sequence of bases in the complementary strand.
+These bases will run in the opposite order to match the fact that the two strands of
+DNA run in opposite directions.</p>
+</blockquote>
+<h2 id="problem">Problem</h2>
+<p>In <a class="term" href="/glossary/dna-string/" id="term-349" rel="tooltip" title="
+A string constructed from the alphabet {A, C, G, T}.">DNA strings</a>, <a class="term" href="/glossary/symbol/" id="term-527" rel="tooltip" title="
+The constituent individual elements of a string, which may constitute numbers and letters.">symbols</a> 'A' and 'T' are complements of each other, as are 'C' and 'G'.</p>
+<p>The <a class="term new" href="/glossary/reverse-complement/" id="term-252" rel="tooltip" title="New term: 
+The DNA string formed by reversing and complementing each symbol.">reverse complement</a> of a <a class="term" href="/glossary/dna-string/" id="term-349" rel="tooltip" title="
+A string constructed from the alphabet {A, C, G, T}.">DNA string</a> <mathjax>$s$</mathjax> is the string <mathjax>$s^{\textrm{c}}$</mathjax>
+formed by reversing the symbols of <mathjax>$s$</mathjax>, then taking the complement of each symbol
+(e.g., the reverse complement of "GTCA" is "TGAC").</p>
+<p><span class="given-return">Given:</span> A DNA string <mathjax>$s$</mathjax> of length at most 1000 <a class="term" href="/glossary/base-pair/" id="term-208" rel="tooltip" title="
+The combination of two bonded complementary bases.">bp</a>.</p>
+<p><span class="given-return">Return:</span> The reverse complement <mathjax>$s^{\textrm{c}}$</mathjax> of <mathjax>$s$</mathjax>.</p>
+<h2 id="sample-dataset">Sample Dataset</h2>
+<div class="codehilite"><pre>AAAACCCGGT
+</pre></div>
+
+
+<h2 id="sample-output">Sample Output</h2>
+<div class="codehilite"><pre>ACCGGGTTTT
+</pre></div>
+
+
+<div class="clearfix"></div>
+</div>
+
+
+<p class="hide-on-print">
+  Please <a href="/accounts/login/">login</a> to solve this problem.
+</p>
+
+
+
+
+        <div class="footer hide-on-print">
+            <ul>
+                <li><span rel="tooltip" title="Select a typo with your mouse and press Ctrl+Enter">Found a typo?</span></li>
+                <li><a href="/problems/suggested/">Suggest a new problem</a></li>
+                <li><a class="take-tour" href="/problems/list-view/">Take a tour</a></li>
+            </ul>
+        </div>
+    </div> <!-- /container -->
+    
+    
+    <div class="modal hide" id="id_report_typo">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h3>Report a typo</h3>
+    </div>
+    
+    <div class="modal-body">
+        <p>Page:<br /><span id="id_report_typo_page"></span></p>
+        <p>Context:<br /><span id="id_report_typo_context"></span></p>
+        <form id="id_report_typo_form" action="/typos/report/" method="POST" autocomplete="off">
+            
+
+    <input type="hidden" name="context" id="id_context" />
+
+<fieldset>
+
+  
+      
+<div class="control-group ">
+    
+        <label class="control-label" for="id_comment">Comment:</label>
+        <div class="controls">
+            <textarea id="id_comment" rows="10" cols="40" name="comment"></textarea>
+            
+        </div>
+    
+    
+</div>
+  
+      
+<div class="control-group ">
+    
+        <label class="control-label" for="id_email">Email:</label>
+        <div class="controls">
+            <input id="id_email" type="text" name="email" maxlength="127" />
+            
+        </div>
+    
+    
+</div>
+  
+      
+<div class="control-group ">
+    
+        <div class="controls">
+            <label class="checkbox" for="id_is_notify_user">
+                <input checked="checked" type="checkbox" name="is_notify_user" id="id_is_notify_user" /> <span>Notify me about changes</span>
+            </label>
+            
+        </div>
+    
+    
+</div>
+  
+  
+  
+  
+  
+  
+</fieldset>
+        </form>
+    </div>
+    
+    <div class="modal-footer">
+        <a href="#" class="btn btn-primary" id="id_report_typo_submit">Report</a>
+        <a href="#" class="btn" data-dismiss="modal">Close</a>
+    </div>
+</div>
+
+    <div class="modal hide" id="id_modal">
+        <div class="modal-header">
+            <button class="close" data-dismiss="modal">×</button>
+            <h3></h3>
+        </div>
+        <div class="modal-body">
+            <p></p>
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn" data-dismiss="modal">Close</a>
+        </div>
+    </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        var RosalindSettings = {"is_authenticated": false, "is_solver": false, "urls": {"log_block_collapse": "/problems/log/block/collapse/", "log_block_expand": "/problems/log/block/expand/", "glossary_index": "/glossary/", "log_wikipedia": "/glossary/log/wikipedia/", "log_figure": "/problems/log/figure/"}};
+    </script>
+    <script type="text/javascript" src="/static/js/rosalind.pack.min.js?v=1364746428"></script>
+    <script type="text/javascript" charset="utf-8">
+        
+            
+                action_queue.add_action(new Action({"action": "problem-view", "options": {"timelimit": 300, "state": 0, "timeleft": 300, "timewait": 0}}));
+            
+        
+    </script>
+    
+    
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$']]}, TeX: {extensions: ["mhchem.js", "color.js"]}});
+    </script>
+    <script type="text/javascript"
+      src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+    <!-- Feedback widget -->    
+    <script type="text/javascript">
+        var _usrp = {
+            type: "button",
+            company: "rosalind",
+            host: "rosalind.userrules.com",
+            mode: "advanced",
+            sso: {},
+            getVisitorId: function() {return "";},
+            getAdditionalParams: function() {return "";},
+            placement: "right",
+            color: ["#32312E", "#62615E"]
+        };
+    
+        (function(D) {
+            var _usr = D.createElement("script"), s = D.getElementsByTagName("script")[0];
+            _usr.type = "text/javascript"; _usr.async = true;
+            _usr.src = ("https:" == D.location.protocol ? "https" : "http" ) + "://dtkm4pd19nw6z.cloudfront.net/js/userrules/9a41a826e957127b4e5bfc7d140e45c4/feedback.canary.js";
+            s.parentNode.insertBefore(_usr, s);
+        })(document);
+    </script>
+    <!-- Feedback widget -->
+    
+    
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+    
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-32242996-1']);
+      _gaq.push(['_trackPageview']);
+    
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    
+    </script>
+    <!-- Google Analytics -->
+    
+
+  </body>
+</html>

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>ROSALIND | Computing GC Content</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <script type="text/javascript">
+      (function() {
+          document.getElementsByTagName("html")[0].className += " loading loading-mathjax";
+      })();
+    </script>
+    
+    
+    
+    <!-- Le styles -->
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+    <link href="/static/css/rosalind.pack.min.css?v=1364746428" rel="stylesheet">
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/themes/base/jquery-ui.css" type="text/css" media="all" />
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="/static/ico/favicon.ico?v=1350559981">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top hide-on-print">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="/"><img src="/static/img/logo.png?v=1350464059" /></a>
+
+          <div class="nav-collapse">
+            <ul class="nav">
+               
+              <li class="dropdown ">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                      About
+                      <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                      <li><a href="/about/">Project</a></li>
+                      <li><a href="/faq/">FAQ</a></li>
+                      <li><a href="/courses/">Courses</a></li>
+                      <li><a href="/faculty/">Faculty</a></li>
+                  </ul>
+              </li>
+              <li class="dropdown ">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                      Problems
+                      <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                      <li><a href="/problems/list-view/">List View</a></li>
+                      <li><a href="/problems/tree-view/">Tree View</a></li>
+                      <li><a href="/problems/topics/">Topics</a></li>
+                      
+                      <li><a href="/problems/suggested/">Add Problem</a></li>
+                  </ul>
+              </li>
+              <li class="dropdown ">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    Statistics
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="/statistics/top/">Top 100</a></li>
+                    <li><a href="/statistics/countries/">Countries</a></li>
+                    <li><a href="/statistics/levels/">Levels</a></li>
+                    <li><a href="/badges/">Badges</a></li>
+                    <li><a href="/achievements/">Achievements</a></li>
+                </ul>    
+              </li>
+              
+              <li class=""><a href="/glossary/">Glossary</a></li>
+            </ul>
+            
+            <form class="navbar-search pull-left" action="/search/" method="GET" enctype="multipart/form-data">
+                
+                
+                <input type="text" class="search-query " name="q" id="id_q" placeholder="search" accesskey="f" tabindex="1">
+            </form>
+
+            <div class="social-buttons">
+                <a href="http://www.facebook.com/pages/Rosalind/430419800314316" id="facebook" target="_blank" title="Facebook Profile"></a>
+                <a href="http://twitter.com/ProjectRosalind" id="twitter" target="_blank" title="Follow us on Twitter"></a>
+            </div>
+
+            <ul class="nav pull-right">
+                
+                    <li class="" id="menu_login"><a href="/accounts/login/">Log in</a></li>
+                    <li class="" id="menu_register"><a href="/accounts/register/">Register</a></li>
+                
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+    
+    <div class="container main">
+        <noscript>
+            <div class="row-fluid">
+                <div class="alert alert-warning flash-message">
+                    It appears that your browser has JavaScript disabled. Rosalind requires your browser to be JavaScript enabled.
+                </div>
+            </div>
+        </noscript>
+        
+        
+        
+<h1>Computing GC Content
+    
+        <nobr><small class="hide-on-print">
+            
+                <a href="/problems/gc/recent/">solved by 2531</a>
+            
+        </small></nobr>
+    
+</h1>
+
+<div class="problem-properties">
+<p class="date">
+    
+        Aug. 3, 2012, midnight
+    
+    by
+    
+        <a href="/about/">Rosalind Team</a>
+    
+</p>
+
+    <p class="topics"><strong>Topics</strong>:
+        
+            <a href="/problems/topics/string-algorithms/">String Algorithms</a>
+        
+    </p>
+
+</div>
+<ul class="problems-pager hide-on-print">
+    
+    
+    <li class="previous">
+        <a href="/problems/fib/" 
+            title="“Rabbits and Recurrence Relations”" 
+            data-content="Solved by 625 (correct ratio 66.2%).&lt;p class=&quot;topics&quot;&gt;&lt;strong&gt;Topics&lt;/strong&gt;: &lt;span class=&quot;topic&quot;&gt;Combinatorics&lt;/span&gt;, &lt;span class=&quot;topic&quot;&gt;Dynamic Programming&lt;/span&gt;&lt;/p&gt;" rel="popover" data-placement="right" data-trigger="hover">&larr;</a>
+    </li>
+    
+    
+    
+    <li class="next">
+        <a href="/problems/hamm/" 
+            title="“Counting Point Mutations”" 
+            data-content="Solved by 3166 (correct ratio 89.9%).&lt;p class=&quot;topics&quot;&gt;&lt;strong&gt;Topics&lt;/strong&gt;: &lt;span class=&quot;topic&quot;&gt;Alignment&lt;/span&gt;&lt;/p&gt;" rel="popover" data-placement="left" data-trigger="hover">&rarr;</a>
+    </li>
+    
+</ul>
+<div class="problem-statement problem-statement-bordered" problem="217">
+    <blockquote>
+<h2 id="identifying-unknown-dna-quickly">Identifying Unknown DNA Quickly</h2>
+<div class="thumb"><a figure="Figure 1" href="/media/problems/gc/English_letter_frequency.png" lightbox-title="The table above was computed from a large number of English words and shows for any letter the frequency with which it appears in those words. These frequencies can be used to reliably identify a piece of English text and differentiate it from that of another language. Taken from http://en.wikipedia.org/wiki/File:English_letter_frequency_(frequency).svg." rel="lightbox[figures]"><img src="/media/problems/gc/English_letter_frequency.thumb.png" /></a><div class="caption"><strong>Figure 1</strong><span>. </span><span>The table above was computed from a large number of English words and shows for any letter the frequency with which it appears in those words. These frequencies can be used to reliably identify a piece of English text and differentiate it from that of another language. Taken from http://en.wikipedia.org/wiki/File:English_letter_frequency_(frequency).svg.</span></div>
+</div>
+<p>A quick method used by early computer software to determine the language of a given piece of text
+was to analyze the frequency with which each letter appeared in the text.  This strategy was used because each language
+tends to exhibit its own letter frequencies, and as long as the text under consideration is long enough,
+software will correctly recognize the language quickly and with a very low error rate.
+See <a href="/media/problems/gc/English_letter_frequency.png" lightbox-title="The table above was computed from a large number of English words and shows for any letter the frequency with which it appears in those words. These frequencies can be used to reliably identify a piece of English text and differentiate it from that of another language. Taken from http://en.wikipedia.org/wiki/File:English_letter_frequency_(frequency).svg." rel="lightbox[figures]" title="Click to view">Figure 1</a>
+for a table compiling English letter frequencies.</p>
+<p>You may ask: what in the world does this linguistic problem have to do with biology?
+Although two members of the same species will have different <a class="term" href="/glossary/genome/" id="term-360" rel="tooltip" title="
+The collection of all of an organism's DNA taken from all its chromosomes.">genomes</a>, they still share
+the vast percentage of their <a class="term" href="/glossary/dna/" id="term-545" rel="tooltip" title="
+The molecule encoding heredity and underlying the cellular processes of all life forms.">DNA</a>; notably, 99.9% of the 3.2 billion <a class="term" href="/glossary/base-pair/" id="term-208" rel="tooltip" title="
+The combination of two bonded complementary bases.">base pairs</a>
+in a human genome are common to almost all humans (i.e., excluding people having
+major genetic defects).  For this reason, biologists will speak of <em>the</em> human genome, meaning an average-case
+genome derived from a collection of individuals.  Such an average case genome
+can be assembled for any species, a challenge that we will soon discuss.</p>
+<p>The biological analog of identifying unknown text arises
+when researchers encounter a molecule of DNA deriving from an unknown species.
+Because of the base pairing relations of the two DNA <a class="term" href="/glossary/strand/" id="term-250" rel="tooltip" title="
+A nucleic acid polymer.">strands</a>, cytosine and guanine
+will always appear in equal amounts in a double-stranded DNA molecule.
+Thus, to analyze the symbol frequencies of DNA for comparison against a database, we compute the
+molecule's <a class="term new" href="/glossary/gc-content/" id="term-511" rel="tooltip" title="New term: 
+The percentage of cytosine and guanine bases in a strand of nucleic acid.">GC-content</a>, or the percentage of its <a class="term" href="/glossary/nucleobase/" id="term-544" rel="tooltip" title="
+The differentiating component of nucleotides.">bases</a> that are <em>either</em> <a class="term" href="/glossary/cytosine/" id="term-309" rel="tooltip" title="
+One of the nucleobases of both RNA and DNA; complementary to guanine.">cytosine</a> or <a class="term" href="/glossary/guanine/" id="term-310" rel="tooltip" title="
+One of the nucleobases of both RNA and DNA; complementary to cytosine in DNA.">guanine</a>.</p>
+<p>In practice, the GC-content of most <a class="term" href="/glossary/eukaryote/" id="term-380" rel="tooltip" title="
+Eukaryotes form the most complex domain of life, which includes all multicellular organisms.">eukaryotic</a> genomes hovers around 50%. However, because
+genomes are so long, we may be able to distinguish species based on very small discrepancies
+in GC-content; furthermore, most <a class="term" href="/glossary/prokaryote/" id="term-386" rel="tooltip" title="
+A bacterial organism.">prokaryotes</a> have a GC-content significantly higher than 50%,
+so that GC-content can be used to quickly differentiate many prokaryotes and eukaryotes by using relatively small DNA samples.</p>
+</blockquote>
+<h2 id="problem">Problem</h2>
+<p>The GC-content of a <a class="term" href="/glossary/dna-string/" id="term-349" rel="tooltip" title="
+A string constructed from the alphabet {A, C, G, T}.">DNA string</a> is given by the percentage of <a class="term" href="/glossary/symbol/" id="term-527" rel="tooltip" title="
+The constituent individual elements of a string, which may constitute numbers and letters.">symbols</a> in the string that are 'C' or 'G'.
+For example, the GC-content of "AGCTATAG" is 37.5%.
+Note that the <a class="term" href="/glossary/reverse-complement/" id="term-252" rel="tooltip" title="
+The DNA string formed by reversing and complementing each symbol.">reverse complement</a> of any DNA string has the same GC-content. </p>
+<p>DNA strings must be labeled when they are consolidated into a database. 
+A commonly used method of string labeling is called <a class="term new" href="/glossary/fasta-format/" id="term-759" rel="tooltip" title="New term: 
+A text format used for naming genetic strings in databases.">FASTA format</a>.  In this format, the string is
+introduced by a line that begins with '&gt;', followed by some labeling information.
+Subsequent lines contain the string itself; the first line to begin
+with '&gt;' indicates the label of the next string.</p>
+<p>In Rosalind's implementation, a string in FASTA format will be labeled by the ID
+"Rosalind_xxxx", where "xxxx" denotes a four-digit code between 0000 and 9999.</p>
+<p><span class="given-return">Given:</span> At most 10 <a class="term" href="/glossary/dna-string/" id="term-349" rel="tooltip" title="
+A string constructed from the alphabet {A, C, G, T}.">DNA strings</a> in FASTA format (of length at most 1 <a class="term" href="/glossary/kbp/" id="term-394" rel="tooltip" title="
+1 kbp = 1000 base pairs">kbp</a> each).</p>
+<p><span class="given-return">Return:</span> The ID of the string having the highest GC-content, followed by the GC-content of that string.
+Rosalind allows for a default error of 0.001 in all decimal answers unless otherwise
+stated; please see the note on <a class="term new" href="/glossary/absolute-error/" id="term-700" rel="tooltip" title="New term: A measure of how close a computed value is to a correct solution.">absolute error</a> below.</p>
+<h2 id="sample-dataset">Sample Dataset</h2>
+<div class="codehilite"><pre>&gt;Rosalind_6404
+CCTGCGGAAGATCGGCACTAGAATAGCCAGAACCGTTTCTCTGAGGCTTCCGGCCTTCCC
+TCCCACTAATAATTCTGAGG
+&gt;Rosalind_5959
+CCATCGGTAGCGCATCCTTAGTCCAATTAAGTCCCTATCCAGGCGCTCCGCCGAAGGTCT
+ATATCCATTTGTCAGCAGACACGC
+&gt;Rosalind_0808
+CCACCCTCGTGGTATGGCTAGGCATTCAGGAACCGGAGAACGCTTCAGACCAGCCCGGAC
+TGGGAACCTGCGGGCAGTAGGTGGAAT
+</pre></div>
+
+
+<h2 id="sample-output">Sample Output</h2>
+<div class="codehilite"><pre>Rosalind_0808
+60.919540
+</pre></div>
+
+
+<blockquote>
+<h2 id="note-on-absolute-error">Note on Absolute Error</h2>
+<p>We say that a number <mathjax>$x$</mathjax> is within an absolute error of <mathjax>$y$</mathjax> to a correct solution if <mathjax>$x$</mathjax>
+is within <mathjax>$y$</mathjax> of the correct solution.  For example, if an exact solution is 6.157892,
+then for <mathjax>$x$</mathjax> to be within an absolute error of 0.001, we must have that <mathjax>$|x - 6.157892| &lt; 0.001$</mathjax>,
+or <mathjax>$6.156892 &lt; x &lt; 6.158892$</mathjax>.</p>
+<p>Error bounding is a vital practical tool because of the inherent round-off error in representing
+decimals in a computer, where only a finite number of decimal places are allotted to any number.
+After being compounded over a number of operations, this round-off error can become evident.
+As a result, rather than testing whether two numbers are equal with <mathjax>$x = z$</mathjax>, you may
+wish to simply verify that <mathjax>$|x- z|$</mathjax> is very small.</p>
+<p>The mathematical field of <a class="term new" href="/glossary/numerical-analysis/" id="term-569" rel="tooltip" title="New term: 
+The mathematical study of computational approximation.">numerical analysis</a> is devoted to rigorously studying
+the nature of computational approximation.</p>
+</blockquote>
+<div class="clearfix"></div>
+</div>
+
+
+<p class="hide-on-print">
+  Please <a href="/accounts/login/">login</a> to solve this problem.
+</p>
+
+
+
+
+        <div class="footer hide-on-print">
+            <ul>
+                <li><span rel="tooltip" title="Select a typo with your mouse and press Ctrl+Enter">Found a typo?</span></li>
+                <li><a href="/problems/suggested/">Suggest a new problem</a></li>
+                <li><a class="take-tour" href="/problems/list-view/">Take a tour</a></li>
+            </ul>
+        </div>
+    </div> <!-- /container -->
+    
+    
+    <div class="modal hide" id="id_report_typo">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h3>Report a typo</h3>
+    </div>
+    
+    <div class="modal-body">
+        <p>Page:<br /><span id="id_report_typo_page"></span></p>
+        <p>Context:<br /><span id="id_report_typo_context"></span></p>
+        <form id="id_report_typo_form" action="/typos/report/" method="POST" autocomplete="off">
+            
+
+    <input type="hidden" name="context" id="id_context" />
+
+<fieldset>
+
+  
+      
+<div class="control-group ">
+    
+        <label class="control-label" for="id_comment">Comment:</label>
+        <div class="controls">
+            <textarea id="id_comment" rows="10" cols="40" name="comment"></textarea>
+            
+        </div>
+    
+    
+</div>
+  
+      
+<div class="control-group ">
+    
+        <label class="control-label" for="id_email">Email:</label>
+        <div class="controls">
+            <input id="id_email" type="text" name="email" maxlength="127" />
+            
+        </div>
+    
+    
+</div>
+  
+      
+<div class="control-group ">
+    
+        <div class="controls">
+            <label class="checkbox" for="id_is_notify_user">
+                <input checked="checked" type="checkbox" name="is_notify_user" id="id_is_notify_user" /> <span>Notify me about changes</span>
+            </label>
+            
+        </div>
+    
+    
+</div>
+  
+  
+  
+  
+  
+  
+</fieldset>
+        </form>
+    </div>
+    
+    <div class="modal-footer">
+        <a href="#" class="btn btn-primary" id="id_report_typo_submit">Report</a>
+        <a href="#" class="btn" data-dismiss="modal">Close</a>
+    </div>
+</div>
+
+    <div class="modal hide" id="id_modal">
+        <div class="modal-header">
+            <button class="close" data-dismiss="modal">×</button>
+            <h3></h3>
+        </div>
+        <div class="modal-body">
+            <p></p>
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn" data-dismiss="modal">Close</a>
+        </div>
+    </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        var RosalindSettings = {"is_authenticated": false, "is_solver": false, "urls": {"log_block_collapse": "/problems/log/block/collapse/", "log_block_expand": "/problems/log/block/expand/", "glossary_index": "/glossary/", "log_wikipedia": "/glossary/log/wikipedia/", "log_figure": "/problems/log/figure/"}};
+    </script>
+    <script type="text/javascript" src="/static/js/rosalind.pack.min.js?v=1364746428"></script>
+    <script type="text/javascript" charset="utf-8">
+        
+            
+                action_queue.add_action(new Action({"action": "problem-view", "options": {"timelimit": 300, "state": 0, "timeleft": 300, "timewait": 0}}));
+            
+        
+    </script>
+    
+    
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$']]}, TeX: {extensions: ["mhchem.js", "color.js"]}});
+    </script>
+    <script type="text/javascript"
+      src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+    <!-- Feedback widget -->    
+    <script type="text/javascript">
+        var _usrp = {
+            type: "button",
+            company: "rosalind",
+            host: "rosalind.userrules.com",
+            mode: "advanced",
+            sso: {},
+            getVisitorId: function() {return "";},
+            getAdditionalParams: function() {return "";},
+            placement: "right",
+            color: ["#32312E", "#62615E"]
+        };
+    
+        (function(D) {
+            var _usr = D.createElement("script"), s = D.getElementsByTagName("script")[0];
+            _usr.type = "text/javascript"; _usr.async = true;
+            _usr.src = ("https:" == D.location.protocol ? "https" : "http" ) + "://dtkm4pd19nw6z.cloudfront.net/js/userrules/9a41a826e957127b4e5bfc7d140e45c4/feedback.canary.js";
+            s.parentNode.insertBefore(_usr, s);
+        })(document);
+    </script>
+    <!-- Feedback widget -->
+    
+    
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+    
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-32242996-1']);
+      _gaq.push(['_trackPageview']);
+    
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    
+    </script>
+    <!-- Google Analytics -->
+    
+
+  </body>
+</html>

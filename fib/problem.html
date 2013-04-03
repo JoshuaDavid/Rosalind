@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>ROSALIND | Rabbits and Recurrence Relations</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <script type="text/javascript">
+      (function() {
+          document.getElementsByTagName("html")[0].className += " loading loading-mathjax";
+      })();
+    </script>
+    
+    
+    
+    <!-- Le styles -->
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+    <link href="/static/css/rosalind.pack.min.css?v=1364746428" rel="stylesheet">
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/themes/base/jquery-ui.css" type="text/css" media="all" />
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="/static/ico/favicon.ico?v=1350559981">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top hide-on-print">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="/"><img src="/static/img/logo.png?v=1350464059" /></a>
+
+          <div class="nav-collapse">
+            <ul class="nav">
+               
+              <li class="dropdown ">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                      About
+                      <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                      <li><a href="/about/">Project</a></li>
+                      <li><a href="/faq/">FAQ</a></li>
+                      <li><a href="/courses/">Courses</a></li>
+                      <li><a href="/faculty/">Faculty</a></li>
+                  </ul>
+              </li>
+              <li class="dropdown ">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                      Problems
+                      <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                      <li><a href="/problems/list-view/">List View</a></li>
+                      <li><a href="/problems/tree-view/">Tree View</a></li>
+                      <li><a href="/problems/topics/">Topics</a></li>
+                      
+                      <li><a href="/problems/suggested/">Add Problem</a></li>
+                  </ul>
+              </li>
+              <li class="dropdown ">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    Statistics
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="/statistics/top/">Top 100</a></li>
+                    <li><a href="/statistics/countries/">Countries</a></li>
+                    <li><a href="/statistics/levels/">Levels</a></li>
+                    <li><a href="/badges/">Badges</a></li>
+                    <li><a href="/achievements/">Achievements</a></li>
+                </ul>    
+              </li>
+              
+              <li class=""><a href="/glossary/">Glossary</a></li>
+            </ul>
+            
+            <form class="navbar-search pull-left" action="/search/" method="GET" enctype="multipart/form-data">
+                
+                
+                <input type="text" class="search-query " name="q" id="id_q" placeholder="search" accesskey="f" tabindex="1">
+            </form>
+
+            <div class="social-buttons">
+                <a href="http://www.facebook.com/pages/Rosalind/430419800314316" id="facebook" target="_blank" title="Facebook Profile"></a>
+                <a href="http://twitter.com/ProjectRosalind" id="twitter" target="_blank" title="Follow us on Twitter"></a>
+            </div>
+
+            <ul class="nav pull-right">
+                
+                    <li class="" id="menu_login"><a href="/accounts/login/">Log in</a></li>
+                    <li class="" id="menu_register"><a href="/accounts/register/">Register</a></li>
+                
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+    
+    <div class="container main">
+        <noscript>
+            <div class="row-fluid">
+                <div class="alert alert-warning flash-message">
+                    It appears that your browser has JavaScript disabled. Rosalind requires your browser to be JavaScript enabled.
+                </div>
+            </div>
+        </noscript>
+        
+        
+        
+<h1>Rabbits and Recurrence Relations
+    
+        <nobr><small class="hide-on-print">
+            
+                <a href="/problems/fib/recent/">solved by 622</a>
+            
+        </small></nobr>
+    
+</h1>
+
+<div class="problem-properties">
+<p class="date">
+    
+        Feb. 22, 2013, 11:50 a.m.
+    
+    by
+    
+        <a href="/about/">Rosalind Team</a>
+    
+</p>
+
+    <p class="topics"><strong>Topics</strong>:
+        
+            <a href="/problems/topics/combinatorics/">Combinatorics</a>, 
+        
+            <a href="/problems/topics/dynamic-programming/">Dynamic Programming</a>
+        
+    </p>
+
+</div>
+<ul class="problems-pager hide-on-print">
+    
+    
+    <li class="previous">
+        <a href="/problems/revc/" 
+            title="“Complementing a Strand of DNA”" 
+            data-content="Solved by 4220 (correct ratio 78.3%).&lt;p class=&quot;topics&quot;&gt;&lt;strong&gt;Topics&lt;/strong&gt;: &lt;span class=&quot;topic&quot;&gt;String Algorithms&lt;/span&gt;&lt;/p&gt;" rel="popover" data-placement="right" data-trigger="hover">&larr;</a>
+    </li>
+    
+    
+    
+    <li class="next">
+        <a href="/problems/gc/" 
+            title="“Computing GC Content”" 
+            data-content="Solved by 2530 (correct ratio 51.2%).&lt;p class=&quot;topics&quot;&gt;&lt;strong&gt;Topics&lt;/strong&gt;: &lt;span class=&quot;topic&quot;&gt;String Algorithms&lt;/span&gt;&lt;/p&gt;" rel="popover" data-placement="left" data-trigger="hover">&rarr;</a>
+    </li>
+    
+</ul>
+<div class="problem-statement problem-statement-bordered" problem="283">
+    <blockquote>
+<h2 id="wascally-wabbits">Wascally Wabbits</h2>
+<div class="thumb"><a figure="Figure 1" href="/media/problems/fib/rabbit_tree.png" lightbox-title="The growth of Fibonacci's rabbit population for the first six months." rel="lightbox[figures]"><img src="/media/problems/fib/rabbit_tree.thumb.png" /></a><div class="caption"><strong>Figure 1</strong><span>. </span><span>The growth of Fibonacci's rabbit population for the first six months.</span></div>
+</div>
+<div class="thumb"><a figure="Figure 2" href="/media/problems/fib/rabbit_erosion.png" lightbox-title="Erosion at Lake Mungo in New South Wales, which was initiated by European rabbits in the 19th Century. Courtesy Pierre Pouliquin." rel="lightbox[figures]"><img src="/media/problems/fib/rabbit_erosion.thumb.png" /></a><div class="caption"><strong>Figure 2</strong><span>. </span><span>Erosion at Lake Mungo in New South Wales, which was initiated by European rabbits in the 19th Century. Courtesy Pierre Pouliquin.</span></div>
+</div>
+<p>In 1202, Leonardo of Pisa (commonly known as Fibonacci) considered a mathematical exercise
+regarding the reproduction of a population of rabbits.  He made the following simplifying
+assumptions about the population:</p>
+<ol>
+<li>The population begins in the first month with a pair of newborn rabbits.</li>
+<li>Rabbits reach reproductive age after one month.</li>
+<li>In any given month, every rabbit of reproductive age mates with another rabbit of reproductive age.</li>
+<li>Exactly one month after two rabbits mate, they produce one male and one female rabbit.</li>
+<li>Rabbits never die or stop reproducing.</li>
+</ol>
+<p>Fibonacci's exercise was to calculate how many pairs of rabbits would remain in one year.  We can see that in
+the second month, the first pair of rabbits reach reproductive age and mate.  In the third month, another
+pair of rabbits is born, and we have two rabbit pairs; our first pair of rabbits mates again.
+In the fourth month, another pair of rabbits is born to the original pair,
+while the second pair reach maturity and mate (with three total pairs).
+The dynamics of the rabbit population are illustrated in
+<a href="/media/problems/fib/rabbit_tree.png" lightbox-title="The growth of Fibonacci's rabbit population for the first six months." rel="lightbox[figures]" title="Click to view">Figure 1</a>.
+After a year, the rabbit population boasts 144 pairs.</p>
+<p>Although Fibonacci's assumption of the rabbits' immortality may seem a bit farfetched, his model was not
+unrealistic for reproduction in a predator-free environment: European
+rabbits were introduced to Australia in the mid 19th Century, a place with no real indigenous predators
+for them. Within 50 years, the rabbits
+had already eradicated many plant species across the continent, leading to irreversible changes
+in the Australian ecosystem and turning much of its grasslands into eroded, practically uninhabitable
+parts of the modern Outback (see <a href="/media/problems/fib/rabbit_erosion.png" lightbox-title="Erosion at Lake Mungo in New South Wales, which was initiated by European rabbits in the 19th Century. Courtesy Pierre Pouliquin." rel="lightbox[figures]" title="Click to view">Figure 2</a>).
+In this problem, we will use the simple idea of counting rabbits to introduce a new computational
+topic, which involves building up large solutions from smaller ones.</p>
+</blockquote>
+<h2 id="problem">Problem</h2>
+<p>A <a class="term new" href="/glossary/sequence/" id="term-395" rel="tooltip" title="New term: 
+An ordered collection of possibly repeating objects, typically numbers.">sequence</a> is an ordered collection of objects (usually numbers), which are allowed to repeat.  Sequences can be finite or infinite.
+Two examples are the finite sequence <mathjax>$(\pi, -\sqrt{2}, 0, \pi)$</mathjax> and the infinite sequence of odd numbers
+<mathjax>$(1, 3, 5, 7, 9, \ldots)$</mathjax>.  We use the notation <mathjax>$a_n$</mathjax> to represent the <mathjax>$n$</mathjax>-th term of a sequence.</p>
+<p>A <a class="term new" href="/glossary/recurrence-relation/" id="term-757" rel="tooltip" title="New term: 
+An equation defining the terms of a sequence with respect to previous terms.">recurrence relation</a> is a way of defining the terms of a sequence with respect to the values
+of previous terms.  In the case of Fibonacci's rabbits from the introduction, any given
+month will contain the rabbits that were alive the previous month, plus any new offspring.
+A key observation is that the number of offspring in any month is equal to the number of
+rabbits that were alive two months prior.  As a result, if <mathjax>$F_n$</mathjax> represents the number
+of rabbit pairs alive after the <mathjax>$n$</mathjax>-th month, then we obtain the <a class="term new" href="/glossary/fibonacci-sequence/" id="term-760" rel="tooltip" title="New term: 
+A sequence of numbers formed by adding the two previous members of the sequence.">Fibonacci sequence</a>
+having terms <mathjax>$F_n$</mathjax> that are defined by the recurrence relation <mathjax>$F_{n} = F_{n-1} + F_{n-2}$</mathjax>
+(with <mathjax>$F_1 = F_2 = 1$</mathjax> to initiate the sequence).  Although the sequence bears Fibonacci's name,
+it was known to Indian mathematicians over two millennia ago.</p>
+<p>When finding the <mathjax>$n$</mathjax>-th term of a sequence defined by a recurrence relation,
+we can simply use the recurrence relation to generate terms for progressively larger values of <mathjax>$n$</mathjax>.
+This problem introduces us to the computational technique of <a class="term new" href="/glossary/dynamic-programming/" id="term-196" rel="tooltip" title="New term: 
+The algorithmic notion of building up a solution to a problem by solving it on progressively larger cases.">dynamic programming</a>, which
+successively builds up solutions by using the answers to smaller cases.</p>
+<p><span class="given-return">Given:</span> Positive integers <mathjax>$n \leq 40$</mathjax> and <mathjax>$k \leq 5$</mathjax>.</p>
+<p><span class="given-return">Return:</span> The total number of rabbit pairs that will be present after <mathjax>$n$</mathjax> months if each pair of reproduction-age
+rabbits produces a litter of <mathjax>$k$</mathjax> rabbit pairs in each generation (instead of only 1 pair).</p>
+<h2 id="sample-dataset">Sample Dataset</h2>
+<div class="codehilite"><pre>5 3
+</pre></div>
+
+
+<h2 id="sample-output">Sample Output</h2>
+<div class="codehilite"><pre>19
+</pre></div>
+
+
+<div class="clearfix"></div>
+</div>
+
+
+<p class="hide-on-print">
+  Please <a href="/accounts/login/">login</a> to solve this problem.
+</p>
+
+
+
+
+        <div class="footer hide-on-print">
+            <ul>
+                <li><span rel="tooltip" title="Select a typo with your mouse and press Ctrl+Enter">Found a typo?</span></li>
+                <li><a href="/problems/suggested/">Suggest a new problem</a></li>
+                <li><a class="take-tour" href="/problems/list-view/">Take a tour</a></li>
+            </ul>
+        </div>
+    </div> <!-- /container -->
+    
+    
+    <div class="modal hide" id="id_report_typo">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h3>Report a typo</h3>
+    </div>
+    
+    <div class="modal-body">
+        <p>Page:<br /><span id="id_report_typo_page"></span></p>
+        <p>Context:<br /><span id="id_report_typo_context"></span></p>
+        <form id="id_report_typo_form" action="/typos/report/" method="POST" autocomplete="off">
+            
+
+    <input type="hidden" name="context" id="id_context" />
+
+<fieldset>
+
+  
+      
+<div class="control-group ">
+    
+        <label class="control-label" for="id_comment">Comment:</label>
+        <div class="controls">
+            <textarea id="id_comment" rows="10" cols="40" name="comment"></textarea>
+            
+        </div>
+    
+    
+</div>
+  
+      
+<div class="control-group ">
+    
+        <label class="control-label" for="id_email">Email:</label>
+        <div class="controls">
+            <input id="id_email" type="text" name="email" maxlength="127" />
+            
+        </div>
+    
+    
+</div>
+  
+      
+<div class="control-group ">
+    
+        <div class="controls">
+            <label class="checkbox" for="id_is_notify_user">
+                <input checked="checked" type="checkbox" name="is_notify_user" id="id_is_notify_user" /> <span>Notify me about changes</span>
+            </label>
+            
+        </div>
+    
+    
+</div>
+  
+  
+  
+  
+  
+  
+</fieldset>
+        </form>
+    </div>
+    
+    <div class="modal-footer">
+        <a href="#" class="btn btn-primary" id="id_report_typo_submit">Report</a>
+        <a href="#" class="btn" data-dismiss="modal">Close</a>
+    </div>
+</div>
+
+    <div class="modal hide" id="id_modal">
+        <div class="modal-header">
+            <button class="close" data-dismiss="modal">×</button>
+            <h3></h3>
+        </div>
+        <div class="modal-body">
+            <p></p>
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn" data-dismiss="modal">Close</a>
+        </div>
+    </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        var RosalindSettings = {"is_authenticated": false, "is_solver": false, "urls": {"log_block_collapse": "/problems/log/block/collapse/", "log_block_expand": "/problems/log/block/expand/", "glossary_index": "/glossary/", "log_wikipedia": "/glossary/log/wikipedia/", "log_figure": "/problems/log/figure/"}};
+    </script>
+    <script type="text/javascript" src="/static/js/rosalind.pack.min.js?v=1364746428"></script>
+    <script type="text/javascript" charset="utf-8">
+        
+            
+                action_queue.add_action(new Action({"action": "problem-view", "options": {"timelimit": 300, "state": 0, "timeleft": 300, "timewait": 0}}));
+            
+        
+    </script>
+    
+    
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$']]}, TeX: {extensions: ["mhchem.js", "color.js"]}});
+    </script>
+    <script type="text/javascript"
+      src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+    <!-- Feedback widget -->    
+    <script type="text/javascript">
+        var _usrp = {
+            type: "button",
+            company: "rosalind",
+            host: "rosalind.userrules.com",
+            mode: "advanced",
+            sso: {},
+            getVisitorId: function() {return "";},
+            getAdditionalParams: function() {return "";},
+            placement: "right",
+            color: ["#32312E", "#62615E"]
+        };
+    
+        (function(D) {
+            var _usr = D.createElement("script"), s = D.getElementsByTagName("script")[0];
+            _usr.type = "text/javascript"; _usr.async = true;
+            _usr.src = ("https:" == D.location.protocol ? "https" : "http" ) + "://dtkm4pd19nw6z.cloudfront.net/js/userrules/9a41a826e957127b4e5bfc7d140e45c4/feedback.canary.js";
+            s.parentNode.insertBefore(_usr, s);
+        })(document);
+    </script>
+    <!-- Feedback widget -->
+    
+    
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+    
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-32242996-1']);
+      _gaq.push(['_trackPageview']);
+    
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    
+    </script>
+    <!-- Google Analytics -->
+    
+
+  </body>
+</html>

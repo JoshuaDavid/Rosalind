@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>ROSALIND | Counting Point Mutations</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <script type="text/javascript">
+      (function() {
+          document.getElementsByTagName("html")[0].className += " loading loading-mathjax";
+      })();
+    </script>
+    
+    
+    
+    <!-- Le styles -->
+    <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+    </style>
+    <link href="/static/css/rosalind.pack.min.css?v=1364746428" rel="stylesheet">
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/themes/base/jquery-ui.css" type="text/css" media="all" />
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="/static/ico/favicon.ico?v=1350559981">
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top hide-on-print">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="/"><img src="/static/img/logo.png?v=1350464059" /></a>
+
+          <div class="nav-collapse">
+            <ul class="nav">
+               
+              <li class="dropdown ">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                      About
+                      <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                      <li><a href="/about/">Project</a></li>
+                      <li><a href="/faq/">FAQ</a></li>
+                      <li><a href="/courses/">Courses</a></li>
+                      <li><a href="/faculty/">Faculty</a></li>
+                  </ul>
+              </li>
+              <li class="dropdown ">
+                  <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                      Problems
+                      <b class="caret"></b>
+                  </a>
+                  <ul class="dropdown-menu">
+                      <li><a href="/problems/list-view/">List View</a></li>
+                      <li><a href="/problems/tree-view/">Tree View</a></li>
+                      <li><a href="/problems/topics/">Topics</a></li>
+                      
+                      <li><a href="/problems/suggested/">Add Problem</a></li>
+                  </ul>
+              </li>
+              <li class="dropdown ">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    Statistics
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="/statistics/top/">Top 100</a></li>
+                    <li><a href="/statistics/countries/">Countries</a></li>
+                    <li><a href="/statistics/levels/">Levels</a></li>
+                    <li><a href="/badges/">Badges</a></li>
+                    <li><a href="/achievements/">Achievements</a></li>
+                </ul>    
+              </li>
+              
+              <li class=""><a href="/glossary/">Glossary</a></li>
+            </ul>
+            
+            <form class="navbar-search pull-left" action="/search/" method="GET" enctype="multipart/form-data">
+                
+                
+                <input type="text" class="search-query " name="q" id="id_q" placeholder="search" accesskey="f" tabindex="1">
+            </form>
+
+            <div class="social-buttons">
+                <a href="http://www.facebook.com/pages/Rosalind/430419800314316" id="facebook" target="_blank" title="Facebook Profile"></a>
+                <a href="http://twitter.com/ProjectRosalind" id="twitter" target="_blank" title="Follow us on Twitter"></a>
+            </div>
+
+            <ul class="nav pull-right">
+                
+                    <li class="" id="menu_login"><a href="/accounts/login/">Log in</a></li>
+                    <li class="" id="menu_register"><a href="/accounts/register/">Register</a></li>
+                
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+    
+    <div class="container main">
+        <noscript>
+            <div class="row-fluid">
+                <div class="alert alert-warning flash-message">
+                    It appears that your browser has JavaScript disabled. Rosalind requires your browser to be JavaScript enabled.
+                </div>
+            </div>
+        </noscript>
+        
+        
+        
+<h1>Counting Point Mutations
+    
+        <nobr><small class="hide-on-print">
+            
+                <a href="/problems/hamm/recent/">solved by 3169</a>
+            
+        </small></nobr>
+    
+</h1>
+
+<div class="problem-properties">
+<p class="date">
+    
+        July 2, 2012, midnight
+    
+    by
+    
+        <a href="/about/">Rosalind Team</a>
+    
+</p>
+
+    <p class="topics"><strong>Topics</strong>:
+        
+            <a href="/problems/topics/alignment/">Alignment</a>
+        
+    </p>
+
+</div>
+<ul class="problems-pager hide-on-print">
+    
+    
+    <li class="previous">
+        <a href="/problems/gc/" 
+            title="“Computing GC Content”" 
+            data-content="Solved by 2533 (correct ratio 51.2%).&lt;p class=&quot;topics&quot;&gt;&lt;strong&gt;Topics&lt;/strong&gt;: &lt;span class=&quot;topic&quot;&gt;String Algorithms&lt;/span&gt;&lt;/p&gt;" rel="popover" data-placement="right" data-trigger="hover">&larr;</a>
+    </li>
+    
+    
+    
+    <li class="next">
+        <a href="/problems/iprb/" 
+            title="“Mendel&#39;s First Law”" 
+            data-content="Solved by 934 (correct ratio 72.0%).&lt;p class=&quot;topics&quot;&gt;&lt;strong&gt;Topics&lt;/strong&gt;: &lt;span class=&quot;topic&quot;&gt;Heredity&lt;/span&gt;, &lt;span class=&quot;topic&quot;&gt;Probability&lt;/span&gt;&lt;/p&gt;" rel="popover" data-placement="left" data-trigger="hover">&rarr;</a>
+    </li>
+    
+</ul>
+<div class="problem-statement problem-statement-bordered" problem="121">
+    <blockquote>
+<h2 id="evolution-as-a-sequence-of-mistakes">Evolution as a Sequence of Mistakes</h2>
+<div class="thumb"><a figure="Figure 1" href="/media/problems/hamm/point_mutation.png" lightbox-title="A point mutation in DNA changing a C-G pair to an A-T pair." rel="lightbox[figures]"><img src="/media/problems/hamm/point_mutation.thumb.png" /></a><div class="caption"><strong>Figure 1</strong><span>. </span><span>A point mutation in DNA changing a C-G pair to an A-T pair.</span></div>
+</div>
+<p>A <a class="term new" href="/glossary/mutation/" id="term-271" rel="tooltip" title="New term: 
+A mistake that occurs during the creation or copying of a nucleic acid.">mutation</a> is simply a mistake that occurs during the creation or copying of a
+<a class="term" href="/glossary/nucleic-acid/" id="term-200" rel="tooltip" title="
+A polymer of nucleotides, constituting either RNA or DNA.">nucleic acid</a>, in particular <a class="term" href="/glossary/dna/" id="term-545" rel="tooltip" title="
+The molecule encoding heredity and underlying the cellular processes of all life forms.">DNA</a>.  Because nucleic acids are vital to <a class="term" href="/glossary/cell/" id="term-257" rel="tooltip" title="
+The &quot;building block of life,&quot; making up all living things on Earth.">cellular</a> functions, mutations tend
+to cause a ripple effect throughout the cell.
+Although mutations are technically mistakes, a very rare mutation may equip the cell with a beneficial attribute.
+In fact, the macro effects of evolution are attributable by the accumulated result of beneficial
+microscopic mutations over many generations.</p>
+<p>The simplest and most common type of nucleic acid mutation is a <a class="term new" href="/glossary/point-mutation/" id="term-272" rel="tooltip" title="New term: 
+A mutation that only affects a single nucleotide of nucleic acid.">point mutation</a>, which
+replaces one <a class="term" href="/glossary/nucleobase/" id="term-544" rel="tooltip" title="
+The differentiating component of nucleotides.">base</a> with another at a single <a class="term" href="/glossary/nucleotide/" id="term-201" rel="tooltip" title="
+The monomer making up a nucleic acid.">nucleotide</a>.  In the case of DNA,
+a point mutation must change the <a class="term" href="/glossary/complementary-base/" id="term-667" rel="tooltip" title="
+The base to which a given base bonds in DNA.">complementary base</a> accordingly;
+see <a href="/media/problems/hamm/point_mutation.png" lightbox-title="A point mutation in DNA changing a C-G pair to an A-T pair." rel="lightbox[figures]" title="Click to view">Figure 1</a>.</p>
+<p>Two DNA strands taken from different organism or species genomes are <a class="term new" href="/glossary/homologous/" id="term-324" rel="tooltip" title="New term: 
+Descending from the same ancestor.">homologous</a> if they share a recent
+ancestor; thus, counting the number of bases at which homologous strands differ provides
+us with the minimum number of point mutations that could have occurred
+on the evolutionary path between the two strands.</p>
+<p>We are interested in minimizing the number of (point) mutations separating two species because of the
+biological principle of <a class="term new" href="/glossary/parsimony/" id="term-236" rel="tooltip" title="New term: 
+The biological principle that nature tends to take the shortest path in evolution.">parsimony</a>, which demands that evolutionary histories should be as simply explained as possible.</p>
+</blockquote>
+<h2 id="problem">Problem</h2>
+<div class="thumb"><a figure="Figure 2" href="/media/problems/hamm/Hamming_distance.png" lightbox-title="The Hamming distance between these two strings is 7. Mismatched symbols are colored red." rel="lightbox[figures]"><img src="/media/problems/hamm/Hamming_distance.png" /></a><div class="caption"><strong>Figure 2</strong><span>. </span><span>The Hamming distance between these two strings is 7. Mismatched symbols are colored red.</span></div>
+</div>
+<p>Given two <a class="term" href="/glossary/string/" id="term-803" rel="tooltip" title="
+An ordered collection of symbols formed into a word.">strings</a> <mathjax>$s$</mathjax> and <mathjax>$t$</mathjax> of equal length, the <a class="term new" href="/glossary/hamming-distance/" id="term-238" rel="tooltip" title="New term: 
+The minimum number of symbol substitutions required to change one string into another of equal length.">Hamming distance</a>
+between <mathjax>$s$</mathjax> and <mathjax>$t$</mathjax>, denoted <mathjax>$d_{\mathrm{H}}(s, t)$</mathjax>, is the number of corresponding symbols
+that differ in <mathjax>$s$</mathjax> and <mathjax>$t$</mathjax>.  See <a href="/media/problems/hamm/Hamming_distance.png" lightbox-title="The Hamming distance between these two strings is 7. Mismatched symbols are colored red." rel="lightbox[figures]" title="Click to view">Figure 2</a>.</p>
+<p><span class="given-return">Given:</span> Two <a class="term" href="/glossary/dna-string/" id="term-349" rel="tooltip" title="
+A string constructed from the alphabet {A, C, G, T}.">DNA strings</a> <mathjax>$s$</mathjax> and <mathjax>$t$</mathjax> of equal length (not exceeding 1 <a class="term" href="/glossary/kbp/" id="term-394" rel="tooltip" title="
+1 kbp = 1000 base pairs">kbp</a>).</p>
+<p><span class="given-return">Return:</span> The Hamming distance <mathjax>$d_{\mathrm{H}}(s, t)$</mathjax>.</p>
+<h2 id="sample-dataset">Sample Dataset</h2>
+<div class="codehilite"><pre>GAGCCTACTAACGGGAT
+CATCGTAATGACGGCCT
+</pre></div>
+
+
+<h2 id="sample-output">Sample Output</h2>
+<div class="codehilite"><pre>7
+</pre></div>
+
+
+<div class="clearfix"></div>
+</div>
+
+
+<p class="hide-on-print">
+  Please <a href="/accounts/login/">login</a> to solve this problem.
+</p>
+
+
+
+
+        <div class="footer hide-on-print">
+            <ul>
+                <li><span rel="tooltip" title="Select a typo with your mouse and press Ctrl+Enter">Found a typo?</span></li>
+                <li><a href="/problems/suggested/">Suggest a new problem</a></li>
+                <li><a class="take-tour" href="/problems/list-view/">Take a tour</a></li>
+            </ul>
+        </div>
+    </div> <!-- /container -->
+    
+    
+    <div class="modal hide" id="id_report_typo">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">×</button>
+        <h3>Report a typo</h3>
+    </div>
+    
+    <div class="modal-body">
+        <p>Page:<br /><span id="id_report_typo_page"></span></p>
+        <p>Context:<br /><span id="id_report_typo_context"></span></p>
+        <form id="id_report_typo_form" action="/typos/report/" method="POST" autocomplete="off">
+            
+
+    <input type="hidden" name="context" id="id_context" />
+
+<fieldset>
+
+  
+      
+<div class="control-group ">
+    
+        <label class="control-label" for="id_comment">Comment:</label>
+        <div class="controls">
+            <textarea id="id_comment" rows="10" cols="40" name="comment"></textarea>
+            
+        </div>
+    
+    
+</div>
+  
+      
+<div class="control-group ">
+    
+        <label class="control-label" for="id_email">Email:</label>
+        <div class="controls">
+            <input id="id_email" type="text" name="email" maxlength="127" />
+            
+        </div>
+    
+    
+</div>
+  
+      
+<div class="control-group ">
+    
+        <div class="controls">
+            <label class="checkbox" for="id_is_notify_user">
+                <input checked="checked" type="checkbox" name="is_notify_user" id="id_is_notify_user" /> <span>Notify me about changes</span>
+            </label>
+            
+        </div>
+    
+    
+</div>
+  
+  
+  
+  
+  
+  
+</fieldset>
+        </form>
+    </div>
+    
+    <div class="modal-footer">
+        <a href="#" class="btn btn-primary" id="id_report_typo_submit">Report</a>
+        <a href="#" class="btn" data-dismiss="modal">Close</a>
+    </div>
+</div>
+
+    <div class="modal hide" id="id_modal">
+        <div class="modal-header">
+            <button class="close" data-dismiss="modal">×</button>
+            <h3></h3>
+        </div>
+        <div class="modal-body">
+            <p></p>
+        </div>
+        <div class="modal-footer">
+            <a href="#" class="btn" data-dismiss="modal">Close</a>
+        </div>
+    </div>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.0/jquery-ui.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        var RosalindSettings = {"is_authenticated": false, "is_solver": false, "urls": {"log_block_collapse": "/problems/log/block/collapse/", "log_block_expand": "/problems/log/block/expand/", "glossary_index": "/glossary/", "log_wikipedia": "/glossary/log/wikipedia/", "log_figure": "/problems/log/figure/"}};
+    </script>
+    <script type="text/javascript" src="/static/js/rosalind.pack.min.js?v=1364746428"></script>
+    <script type="text/javascript" charset="utf-8">
+        
+            
+                action_queue.add_action(new Action({"action": "problem-view", "options": {"timelimit": 300, "state": 0, "timeleft": 300, "timewait": 0}}));
+            
+        
+    </script>
+    
+    
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$']]}, TeX: {extensions: ["mhchem.js", "color.js"]}});
+    </script>
+    <script type="text/javascript"
+      src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>
+    
+    <!-- Feedback widget -->    
+    <script type="text/javascript">
+        var _usrp = {
+            type: "button",
+            company: "rosalind",
+            host: "rosalind.userrules.com",
+            mode: "advanced",
+            sso: {},
+            getVisitorId: function() {return "";},
+            getAdditionalParams: function() {return "";},
+            placement: "right",
+            color: ["#32312E", "#62615E"]
+        };
+    
+        (function(D) {
+            var _usr = D.createElement("script"), s = D.getElementsByTagName("script")[0];
+            _usr.type = "text/javascript"; _usr.async = true;
+            _usr.src = ("https:" == D.location.protocol ? "https" : "http" ) + "://dtkm4pd19nw6z.cloudfront.net/js/userrules/9a41a826e957127b4e5bfc7d140e45c4/feedback.canary.js";
+            s.parentNode.insertBefore(_usr, s);
+        })(document);
+    </script>
+    <!-- Feedback widget -->
+    
+    
+    <!-- Google Analytics -->
+    <script type="text/javascript">
+    
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-32242996-1']);
+      _gaq.push(['_trackPageview']);
+    
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    
+    </script>
+    <!-- Google Analytics -->
+    
+
+  </body>
+</html>
